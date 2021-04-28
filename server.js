@@ -5,10 +5,11 @@ const bodyparser = require('body-parser')
 const app = express()
 const path = require('path')
 const ejs = require('ejs')
-app.get('/', (req, res) => {
-  res.render('index')
-})
-
+const router = require('./server/routes/router');
+const connectDB = require('./server/database/connection');
+const {
+  connect
+} = require('./server/routes/router');
 dotenv.config({
   path: 'config.env'
 })
@@ -16,6 +17,10 @@ dotenv.config({
 //Log requests
 app.use(morgan('dev'))
 
+// mongodb connection
+connectDB()
+
+app.use('/', router)
 //parse request to the body-parser
 app.use(bodyparser.urlencoded({
   extended: true
