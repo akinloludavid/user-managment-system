@@ -1,6 +1,6 @@
 const express = require('express')
 const route = express.Router()
-const services = require('../services/services')
+const services = require('../services/render')
 const controller = require('../controller/controller')
 
 
@@ -27,8 +27,10 @@ route.get('/update-user', services.update_user)
 
 
 //API
+
 route.post('/api/users', controller.create)
 route.get('/api/users', controller.find)
+route.get('/api/users/:id', controller.getOne)
 route.put('/api/users/:id', controller.update)
 route.delete('/api/users:/id', controller.delete)
 

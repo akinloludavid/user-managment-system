@@ -14,28 +14,28 @@
     <span class="">Create Another Account</span>
   </div>
 
-  <form action="/" method="POST" class="text-center container p-5">
+  <form action="" id="update_user" method="POST" class="text-center container p-5">
     <div class="new-user text-left">
       <div class="form-group">
         <label for="name" class="">Name</label>
-        <input type="hidden" name="id" value="">
-        <input type="text" name="name" value="" placeholder="Mark Sunny">
+        <input type="hidden" name="id" value="<%= user._id%>">
+        <input type="text" name="name" value="<%= user.name%>" placeholder="Mark Sunny">
       </div>
 
       <div class="form-group">
         <label for="email" class="">Email</label>
         <input type="hidden" name="id" value="">
-        <input type="text" name="email" value="" placeholder="example@gmail.com">
+        <input type="text" name="email" value="<%=user.email%>" placeholder="example@gmail.com">
       </div>
       <div class="form-group">
         <label for="gender" class="">Gender</label>
         <div class="radio inline">
-          <input type="radio" name="gender" value="Male">
+          <input type="radio" name="gender" value="Male" <%= user.gender == 'Male' ? 'checked': ''%>>
           <label for="gender" class="">Male</label>
 
         </div>
         <div class="radio inline">
-          <input type="radio" name="gender" value="Female">
+          <input type="radio" name="gender" value="Female" <%= user.gender == 'Female' ? 'checked': ''%>>
           <label for="gender" class="">Female</label>
 
         </div>
@@ -45,7 +45,7 @@
       <div class="form-group">
         <label for="status" class="">Status</label>
         <input type="hidden" name="status" value="">
-        <input type="text" name="email" value="" placeholder="active or inactive">
+        <input type="text" name="email" value="<%=user.status%>" placeholder="active or inactive">
 
       </div>
 
